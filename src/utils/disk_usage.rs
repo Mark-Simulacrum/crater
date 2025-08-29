@@ -12,7 +12,7 @@ impl DiskUsage {
                 &crate::dirs::WORK_DIR,
             ))?;
             Ok(Self {
-                usage: stat.blocks_available() as f32 / stat.blocks() as f32,
+                usage: stat.blocks() as f32 / stat.blocks_available() as f32,
             })
         }
         #[cfg(not(unix))]
